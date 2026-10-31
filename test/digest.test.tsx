@@ -76,8 +76,9 @@ describe('digest routes', () => {
     expect(html.indexOf('alpha')).toBeGreaterThan(-1);
     expect(html.indexOf('alpha')).toBeLessThan(html.indexOf('zeta'));
     expect(html).toContain('—');
-    expect(html).toContain('fail');
-    expect(html).toContain('3');
+    expect(html).toContain('<span class="warn">3</span>');
+    expect(html).toContain('<span class="warn">fail</span>');
+    expect(html).toContain('2026-10-28T01:04:00-04:00');
   });
 
   it('returns 404 from both routes when the night file is missing', async () => {
@@ -112,9 +113,25 @@ describe('digest routes', () => {
 
     const pageResponse = await app().request('/digest/2026-10-26');
     const html = await pageResponse.text();
+    const jsonResponse = await app().request('/api/digest/2026-10-26');
+    const rows: DigestRow[] = await jsonResponse.json();
 
     expect(pageResponse.status).toBe(200);
+    expect(jsonResponse.status).toBe(200);
     expect(html).toContain('survivor');
+    expect(html).toContain('2026-10-26T08:14:00+05:30');
     expect(html).toMatch(/(?:1\D*bad line|bad line\D*1)/i);
+    expect(rows).toEqual([
+      {
+        job: 'survivor',
+        owner: 'Jo',
+        runs: 1,
+        retries: 0,
+        lastStatus: 'ok',
+        lastError: null,
+        firstAt: '2026-10-26T08:14:00+05:30',
+        lastAt: '2026-10-26T08:14:00+05:30',
+      },
+    ]);
   });
 });
