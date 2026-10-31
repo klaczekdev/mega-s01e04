@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-31
 ---
 
 # Morning digest
@@ -77,3 +78,19 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue |
+|---|-------|
+| 1 | [Morning digest issue 1](https://github.com/klaczekdev/mega-s01e04/issues/1) |
+| 2 | [Morning digest issue 2](https://github.com/klaczekdev/mega-s01e04/issues/2) |
+| 3 | [Morning digest issue 3](https://github.com/klaczekdev/mega-s01e04/issues/3) |
+| 4 | [Morning digest issue 4](https://github.com/klaczekdev/mega-s01e04/issues/4) |
+| 5 | [Morning digest issue 5](https://github.com/klaczekdev/mega-s01e04/issues/5) |
+| 6 | [Morning digest issue 6](https://github.com/klaczekdev/mega-s01e04/issues/6) |
+| 7 | [Morning digest issue 7](https://github.com/klaczekdev/mega-s01e04/issues/7) |
+
+Preview: https://mega-s01e04.pages.dev/
+
+Validation: 11 tests passed; typecheck passed.
